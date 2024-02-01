@@ -1,13 +1,14 @@
 const express = require("express");
-
-const { connect } = require("./config/database");
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
+const bodyParser = require('body-parser');
+const { connect } = require("./config/database");
+require("dotenv").config();
 
 app.use(cors());
 const app = express();
-require("dotenv").config();
 
+app.use(bodyParser.json());
 const PORT = process.env.Port || 5000;
 app.use(express.json());
 
